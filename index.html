@@ -1069,12 +1069,36 @@
     </footer>
 
     <script>
-        // Configuration - Replace with your actual ElevenLabs API key and Voice ID
-        const ELEVENLABS_CONFIG = {
-            apiKey: 'your-elevenlabs-api-key-here', // Replace with your actual API key
-            voiceId: 'your-saudi-voice-id-here', // Replace with a Saudi Arabic voice ID
-            apiUrl: 'https://api.elevenlabs.io/v1/text-to-speech/'
-        };
+       // Remove the old ELEVENLABS_CONFIG object completely
+
+// New secure configuration - calls YOUR serverless function instead
+async function speakText(text) {
+    try {
+        // Call your own API endpoint (keys are hidden on server)
+        const response = await fetch('/api/text-to-speech', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                text: text,
+                voiceId: 'your-saudi-voice-id-here' // You can still specify voice here
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to generate speech');
+        }
+
+        const audioBlob = await response.blob();
+        const audioUrl = URL.createObjectURL(audioBlob);
+        const audio = new Audio(audioUrl);
+        audio.play();
+        
+    } catch (error) {
+        console.error('Error generating speech:', error);
+    }
+}
 
         // Global variables
         let isRecording = false;
