@@ -1,0 +1,162 @@
+{
+  "venue": {
+    "name": "Sample Convention Center",
+    "map_image": "floor-plan.jpg",
+    "current_location": {
+      "id": "entrance_main",
+      "name": "Main Entrance",
+      "coordinates": {"x": 100, "y": 400}
+    },
+    "locations": [
+      {
+        "id": "bathroom_1",
+        "name": "Restroom - North Wing",
+        "type": "restroom",
+        "coordinates": {"x": 150, "y": 200},
+        "description": "Main restrooms near entrance A",
+        "icon": "fas fa-toilet"
+      },
+      {
+        "id": "bathroom_2",
+        "name": "Restroom - South Wing",
+        "type": "restroom",
+        "coordinates": {"x": 150, "y": 600},
+        "description": "Restrooms near Hall B",
+        "icon": "fas fa-toilet"
+      },
+      {
+        "id": "food_court_1",
+        "name": "Food Court - Central",
+        "type": "food",
+        "coordinates": {"x": 300, "y": 300},
+        "description": "Main food court with various vendors",
+        "icon": "fas fa-utensils"
+      },
+      {
+        "id": "food_court_2",
+        "name": "Coffee Shop - East Wing",
+        "type": "food",
+        "coordinates": {"x": 450, "y": 250},
+        "description": "Coffee and light snacks",
+        "icon": "fas fa-coffee"
+      },
+      {
+        "id": "main_stage",
+        "name": "Main Stage",
+        "type": "stage",
+        "coordinates": {"x": 400, "y": 400},
+        "description": "Primary event stage and presentation area",
+        "icon": "fas fa-microphone"
+      },
+      {
+        "id": "stage_2",
+        "name": "Secondary Stage",
+        "type": "stage",
+        "coordinates": {"x": 200, "y": 500},
+        "description": "Smaller presentation area",
+        "icon": "fas fa-microphone"
+      },
+      {
+        "id": "exit_north",
+        "name": "North Exit",
+        "type": "exit",
+        "coordinates": {"x": 100, "y": 100},
+        "description": "Emergency exit to north parking",
+        "icon": "fas fa-door-open"
+      },
+      {
+        "id": "exit_south",
+        "name": "South Exit",
+        "type": "exit",
+        "coordinates": {"x": 100, "y": 700},
+        "description": "Emergency exit to south parking",
+        "icon": "fas fa-door-open"
+      },
+      {
+        "id": "parking_north",
+        "name": "North Parking",
+        "type": "parking",
+        "coordinates": {"x": 50, "y": 150},
+        "description": "Main parking area - North side",
+        "icon": "fas fa-parking"
+      },
+      {
+        "id": "parking_south",
+        "name": "South Parking",
+        "type": "parking",
+        "coordinates": {"x": 50, "y": 650},
+        "description": "Additional parking - South side",
+        "icon": "fas fa-parking"
+      },
+      {
+        "id": "info_desk",
+        "name": "Information Desk",
+        "type": "info",
+        "coordinates": {"x": 250, "y": 350},
+        "description": "Main information and help desk",
+        "icon": "fas fa-info-circle"
+      },
+      {
+        "id": "charging_station",
+        "name": "Phone Charging Station",
+        "type": "service",
+        "coordinates": {"x": 350, "y": 450},
+        "description": "Free phone charging stations",
+        "icon": "fas fa-battery-half"
+      },
+      {
+        "id": "hall_a",
+        "name": "Exhibition Hall A",
+        "type": "exhibition",
+        "coordinates": {"x": 200, "y": 300},
+        "description": "Main exhibition space",
+        "icon": "fas fa-building"
+      },
+      {
+        "id": "hall_b",
+        "name": "Exhibition Hall B",
+        "type": "exhibition",
+        "coordinates": {"x": 200, "y": 500},
+        "description": "Secondary exhibition space",
+        "icon": "fas fa-building"
+      },
+      {
+        "id": "first_aid",
+        "name": "First Aid Station",
+        "type": "service",
+        "coordinates": {"x": 300, "y": 200},
+        "description": "Medical assistance and first aid",
+        "icon": "fas fa-first-aid"
+      }
+    ],
+    "paths": [
+      {
+        "from": "entrance_main",
+        "to": "bathroom_1",
+        "directions": "Head straight 50m, turn right at the information desk"
+      },
+      {
+        "from": "entrance_main",
+        "to": "food_court_1",
+        "directions": "Walk straight ahead 200m to the central food court"
+      },
+      {
+        "from": "entrance_main",
+        "to": "main_stage",
+        "directions": "Head straight 300m, the main stage is on your right"
+      },
+      {
+        "from": "entrance_main",
+        "to": "info_desk",
+        "directions": "Walk straight 150m to the information desk"
+      }
+    ],
+    "venue_info": {
+      "hours": "9:00 AM - 6:00 PM",
+      "phone": "(555) 123-4567",
+      "wifi": "Free WiFi available throughout the venue",
+      "accessibility": "Wheelchair accessible with elevators and ramps",
+      "emergency": "In case of emergency, proceed to the nearest exit or contact security"
+    }
+  }
+}

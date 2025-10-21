@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoloGuide - AI Event Navigation Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <h1><i class="fas fa-hologram"></i> HoloGuide</h1>
+                <p>AI-Powered Event Navigation Assistant</p>
+                <div class="header-controls">
+                    <button id="voiceToggle" class="control-btn" title="Toggle Voice">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                    <button id="settingsBtn" class="control-btn" title="Settings">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="chat-section">
+                <div class="chat-header">
+                    <h2>Ask me anything about the venue</h2>
+                    <div class="quick-actions">
+                        <button class="quick-btn" data-query="Where is the bathroom?">
+                            <i class="fas fa-toilet"></i> Bathroom
+                        </button>
+                        <button class="quick-btn" data-query="Show me food courts">
+                            <i class="fas fa-utensils"></i> Food
+                        </button>
+                        <button class="quick-btn" data-query="Where is the main stage?">
+                            <i class="fas fa-microphone"></i> Main Stage
+                        </button>
+                        <button class="quick-btn" data-query="Find parking">
+                            <i class="fas fa-parking"></i> Parking
+                        </button>
+                        <button class="quick-btn" data-query="Emergency exits">
+                            <i class="fas fa-exit"></i> Emergency
+                        </button>
+                    </div>
+                </div>
+
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message ai-message">
+                        <div class="message-content">
+                            <i class="fas fa-robot"></i>
+                            <p>Welcome to HoloGuide! I'm here to help you navigate the venue. You can ask me about locations, directions, or any venue information. Try asking "Where is the bathroom?" or click one of the quick action buttons above.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="input-wrapper">
+                        <input type="text" id="chatInput" placeholder="Ask me anything..." autocomplete="off">
+                        <button id="sendBtn" class="send-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                        <button id="voiceBtn" class="voice-btn">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                    </div>
+                    <div class="typing-indicator" id="typingIndicator">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="map-section">
+                <div class="map-header">
+                    <h2>Interactive Venue Map</h2>
+                    <div class="map-controls">
+                        <button id="zoomIn" class="map-btn" title="Zoom In">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <button id="zoomOut" class="map-btn" title="Zoom Out">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button id="resetView" class="map-btn" title="Reset View">
+                            <i class="fas fa-home"></i>
+                        </button>
+                        <button id="toggleLegend" class="map-btn" title="Toggle Legend">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <div class="map-wrapper" id="mapWrapper">
+                        <div class="map-background" id="mapBackground">
+                            <img src="images/sample-floor-plan.svg" alt="Sample Convention Center Floor Plan" class="floor-plan-image">
+                        </div>
+                        
+                        <div class="location-markers" id="locationMarkers"></div>
+                        
+                        <svg class="path-overlay" id="pathOverlay"></svg>
+                        
+                        <div class="current-location" id="currentLocation">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                    </div>
+
+                    <div class="map-legend" id="mapLegend">
+                        <h3>Location Types</h3>
+                        <div class="legend-items">
+                            <div class="legend-item">
+                                <div class="legend-marker restroom"></div>
+                                <span>Restrooms</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-marker food"></div>
+                                <span>Food Areas</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-marker stage"></div>
+                                <span>Stages/Events</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-marker exit"></div>
+                                <span>Exits</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-marker parking"></div>
+                                <span>Parking</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="modal" id="settingsModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Settings</h3>
+                    <button class="close-btn" id="closeSettings">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="setting-group">
+                        <label for="voiceEnabled">Voice Responses</label>
+                        <input type="checkbox" id="voiceEnabled" checked>
+                    </div>
+                    <div class="setting-group">
+                        <label for="voiceVolume">Voice Volume</label>
+                        <input type="range" id="voiceVolume" min="0" max="100" value="70">
+                    </div>
+                    <div class="setting-group">
+                        <label for="mapZoom">Default Map Zoom</label>
+                        <input type="range" id="mapZoom" min="50" max="200" value="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="location-popup" id="locationPopup">
+            <div class="popup-content">
+                <h3 id="popupTitle"></h3>
+                <p id="popupDescription"></p>
+                <button id="getDirections" class="action-btn">Get Directions</button>
+                <button id="closePopup" class="close-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

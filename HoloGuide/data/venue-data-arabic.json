@@ -1,0 +1,231 @@
+{
+  "venue": {
+    "name": "مركز المؤتمرات والمعارض",
+    "map_image": "building-blueprint.svg",
+    "current_location": {
+      "id": "entrance_main",
+      "name": "المدخل الرئيسي",
+      "coordinates": {"x": 400, "y": 500}
+    },
+    "locations": [
+      {
+        "id": "bathroom_north",
+        "name": "دورة مياه - الجناح الشمالي",
+        "type": "restroom",
+        "coordinates": {"x": 200, "y": 200},
+        "description": "دورات المياه الرئيسية في الجناح الشمالي، بجانب القاعة الكبرى",
+        "icon": "fas fa-toilet"
+      },
+      {
+        "id": "bathroom_south",
+        "name": "دورة مياه - الجناح الجنوبي",
+        "type": "restroom",
+        "coordinates": {"x": 200, "y": 800},
+        "description": "دورات المياه في الجناح الجنوبي، قرب منطقة المعرض",
+        "icon": "fas fa-toilet"
+      },
+      {
+        "id": "bathroom_central",
+        "name": "دورة مياه - الممر المركزي",
+        "type": "restroom",
+        "coordinates": {"x": 400, "y": 300},
+        "description": "دورات المياه في الممر المركزي، بجانب منطقة الاستقبال",
+        "icon": "fas fa-toilet"
+      },
+      {
+        "id": "food_court_main",
+        "name": "منطقة الطعام الرئيسية",
+        "type": "food",
+        "coordinates": {"x": 300, "y": 400},
+        "description": "منطقة الطعام والمشروبات الرئيسية في الطابق الأرضي",
+        "icon": "fas fa-utensils"
+      },
+      {
+        "id": "cafe_central",
+        "name": "مقهى البهو المركزي",
+        "type": "food",
+        "coordinates": {"x": 450, "y": 350},
+        "description": "مقهى صغير في البهو المركزي للمشروبات الساخنة",
+        "icon": "fas fa-coffee"
+      },
+      {
+        "id": "main_auditorium",
+        "name": "القاعة الكبرى",
+        "type": "stage",
+        "coordinates": {"x": 150, "y": 300},
+        "description": "القاعة الرئيسية للمؤتمرات والعروض، تتسع لـ 500 شخص",
+        "icon": "fas fa-microphone"
+      },
+      {
+        "id": "secondary_hall",
+        "name": "القاعة الثانوية",
+        "type": "stage",
+        "coordinates": {"x": 150, "y": 700},
+        "description": "قاعة أصغر للورش والعروض التقديمية",
+        "icon": "fas fa-microphone"
+      },
+      {
+        "id": "exhibition_hall_a",
+        "name": "قاعة المعرض أ",
+        "type": "exhibition",
+        "coordinates": {"x": 300, "y": 200},
+        "description": "قاعة المعرض الرئيسية في الطابق الأول",
+        "icon": "fas fa-building"
+      },
+      {
+        "id": "exhibition_hall_b",
+        "name": "قاعة المعرض ب",
+        "type": "exhibition",
+        "coordinates": {"x": 300, "y": 600},
+        "description": "قاعة المعرض الثانوية في الطابق الأول",
+        "icon": "fas fa-building"
+      },
+      {
+        "id": "exit_north",
+        "name": "المخرج الشمالي",
+        "type": "exit",
+        "coordinates": {"x": 100, "y": 100},
+        "description": "مخرج الطوارئ الشمالي، يفتح على موقف السيارات الشمالي",
+        "icon": "fas fa-door-open"
+      },
+      {
+        "id": "exit_south",
+        "name": "المخرج الجنوبي",
+        "type": "exit",
+        "coordinates": {"x": 100, "y": 900},
+        "description": "مخرج الطوارئ الجنوبي، يفتح على موقف السيارات الجنوبي",
+        "icon": "fas fa-door-open"
+      },
+      {
+        "id": "exit_main",
+        "name": "المخرج الرئيسي",
+        "type": "exit",
+        "coordinates": {"x": 400, "y": 600},
+        "description": "المخرج الرئيسي، بجانب المدخل",
+        "icon": "fas fa-door-open"
+      },
+      {
+        "id": "parking_north",
+        "name": "موقف السيارات الشمالي",
+        "type": "parking",
+        "coordinates": {"x": 50, "y": 150},
+        "description": "موقف السيارات الرئيسي - الجهة الشمالية",
+        "icon": "fas fa-parking"
+      },
+      {
+        "id": "parking_south",
+        "name": "موقف السيارات الجنوبي",
+        "type": "parking",
+        "coordinates": {"x": 50, "y": 850},
+        "description": "موقف السيارات الإضافي - الجهة الجنوبية",
+        "icon": "fas fa-parking"
+      },
+      {
+        "id": "info_desk",
+        "name": "مكتب المعلومات",
+        "type": "info",
+        "coordinates": {"x": 400, "y": 400},
+        "description": "مكتب المعلومات والاستقبال الرئيسي",
+        "icon": "fas fa-info-circle"
+      },
+      {
+        "id": "registration",
+        "name": "منطقة التسجيل",
+        "type": "info",
+        "coordinates": {"x": 350, "y": 450},
+        "description": "منطقة تسجيل الحضور واستلام البطاقات",
+        "icon": "fas fa-clipboard-list"
+      },
+      {
+        "id": "charging_station",
+        "name": "محطة شحن الهواتف",
+        "type": "service",
+        "coordinates": {"x": 500, "y": 300},
+        "description": "محطات شحن مجانية للهواتف المحمولة",
+        "icon": "fas fa-battery-half"
+      },
+      {
+        "id": "first_aid",
+        "name": "نقطة الإسعافات الأولية",
+        "type": "service",
+        "coordinates": {"x": 250, "y": 350},
+        "description": "نقطة الإسعافات الأولية والمساعدة الطبية",
+        "icon": "fas fa-first-aid"
+      },
+      {
+        "id": "security_office",
+        "name": "مكتب الأمن",
+        "type": "service",
+        "coordinates": {"x": 100, "y": 500},
+        "description": "مكتب الأمن الرئيسي",
+        "icon": "fas fa-shield-alt"
+      },
+      {
+        "id": "elevator_main",
+        "name": "المصعد الرئيسي",
+        "type": "service",
+        "coordinates": {"x": 400, "y": 350},
+        "description": "المصعد الرئيسي للطوابق العليا",
+        "icon": "fas fa-elevator"
+      },
+      {
+        "id": "stairs_north",
+        "name": "الدرج الشمالي",
+        "type": "service",
+        "coordinates": {"x": 200, "y": 250},
+        "description": "الدرج المؤدي للطوابق العليا - الجهة الشمالية",
+        "icon": "fas fa-stairs"
+      },
+      {
+        "id": "stairs_south",
+        "name": "الدرج الجنوبي",
+        "type": "service",
+        "coordinates": {"x": 200, "y": 750},
+        "description": "الدرج المؤدي للطوابق العليا - الجهة الجنوبية",
+        "icon": "fas fa-stairs"
+      }
+    ],
+    "paths": [
+      {
+        "from": "entrance_main",
+        "to": "bathroom_central",
+        "directions": "اتجه مباشرة للأمام 50 متر، ستجد دورات المياه على اليمين"
+      },
+      {
+        "from": "entrance_main",
+        "to": "food_court_main",
+        "directions": "اتجه يساراً 100 متر، منطقة الطعام في نهاية الممر"
+      },
+      {
+        "from": "entrance_main",
+        "to": "main_auditorium",
+        "directions": "اتجه شمالاً 200 متر، القاعة الكبرى في نهاية الجناح الشمالي"
+      },
+      {
+        "from": "entrance_main",
+        "to": "info_desk",
+        "directions": "مكتب المعلومات أمامك مباشرة، بجانب منطقة الاستقبال"
+      },
+      {
+        "from": "entrance_main",
+        "to": "exhibition_hall_a",
+        "directions": "اتجه شمالاً 150 متر، ثم يساراً 100 متر للوصول لقاعة المعرض أ"
+      },
+      {
+        "from": "entrance_main",
+        "to": "exhibition_hall_b",
+        "directions": "اتجه جنوباً 150 متر، ثم يساراً 100 متر للوصول لقاعة المعرض ب"
+      }
+    ],
+    "venue_info": {
+      "hours": "8:00 صباحاً - 10:00 مساءً",
+      "phone": "(966) 11-123-4567",
+      "wifi": "واي فاي مجاني متوفر في جميع أنحاء المبنى",
+      "accessibility": "المبنى مجهز بالكامل لذوي الاحتياجات الخاصة مع مصاعد ومنحدرات",
+      "emergency": "في حالة الطوارئ، اتجه لأقرب مخرج أو اتصل بالأمن على الرقم 911",
+      "capacity": "يتسع المبنى لـ 2000 شخص في وقت واحد",
+      "floors": "3 طوابق: أرضي، أول، ثاني",
+      "language_support": "دعم متعدد اللغات: العربية، الإنجليزية، الفرنسية"
+    }
+  }
+}

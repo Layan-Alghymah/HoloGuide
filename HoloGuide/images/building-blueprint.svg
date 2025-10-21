@@ -1,0 +1,127 @@
+<svg width="800" height="1000" viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="1000" fill="#1a1a2e" stroke="#00ffff" stroke-width="2"/>
+  
+  <!-- Grid Pattern -->
+  <defs>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#00ffff" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="1000" fill="url(#grid)"/>
+  
+  <!-- Main Building Structure -->
+  <rect x="100" y="100" width="600" height="800" fill="none" stroke="#00ffff" stroke-width="3"/>
+  
+  <!-- North Wing (Curved) -->
+  <path d="M 100 100 Q 200 150 300 200 L 300 300 Q 200 250 100 300 Z" 
+        fill="none" stroke="#00ffff" stroke-width="2"/>
+  
+  <!-- South Wing (Curved) -->
+  <path d="M 100 700 Q 200 750 300 800 L 300 900 Q 200 850 100 900 Z" 
+        fill="none" stroke="#00ffff" stroke-width="2"/>
+  
+  <!-- Central Corridor -->
+  <rect x="300" y="200" width="200" height="600" fill="none" stroke="#00ffff" stroke-width="2"/>
+  
+  <!-- Main Auditorium (North Wing) -->
+  <ellipse cx="200" cy="250" rx="80" ry="60" fill="rgba(0,255,255,0.1)" stroke="#00ffff" stroke-width="2"/>
+  <text x="200" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#00ffff">القاعة الكبرى</text>
+  
+  <!-- Secondary Hall (South Wing) -->
+  <ellipse cx="200" cy="750" rx="80" ry="60" fill="rgba(0,255,255,0.1)" stroke="#00ffff" stroke-width="2"/>
+  <text x="200" y="755" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#00ffff">القاعة الثانوية</text>
+  
+  <!-- Exhibition Hall A -->
+  <rect x="350" y="150" width="150" height="100" fill="rgba(255,0,255,0.1)" stroke="#ff00ff" stroke-width="2"/>
+  <text x="425" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ff00ff">قاعة المعرض أ</text>
+  
+  <!-- Exhibition Hall B -->
+  <rect x="350" y="750" width="150" height="100" fill="rgba(255,0,255,0.1)" stroke="#ff00ff" stroke-width="2"/>
+  <text x="425" y="805" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ff00ff">قاعة المعرض ب</text>
+  
+  <!-- Food Court -->
+  <rect x="350" y="400" width="150" height="80" fill="rgba(255,255,0,0.1)" stroke="#ffff00" stroke-width="2"/>
+  <text x="425" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ffff00">منطقة الطعام</text>
+  
+  <!-- Information Desk -->
+  <circle cx="400" cy="400" r="30" fill="rgba(0,255,0,0.1)" stroke="#00ff00" stroke-width="2"/>
+  <text x="400" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#00ff00">معلومات</text>
+  
+  <!-- Main Entrance -->
+  <rect x="380" y="500" width="40" height="100" fill="rgba(255,255,255,0.2)" stroke="#ffffff" stroke-width="2"/>
+  <text x="400" y="550" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ffffff" transform="rotate(-90 400 550)">المدخل الرئيسي</text>
+  
+  <!-- North Exit -->
+  <rect x="90" y="150" width="20" height="50" fill="rgba(255,0,0,0.3)" stroke="#ff0000" stroke-width="2"/>
+  <text x="100" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#ff0000" transform="rotate(-90 100 175)">مخرج شمالي</text>
+  
+  <!-- South Exit -->
+  <rect x="90" y="800" width="20" height="50" fill="rgba(255,0,0,0.3)" stroke="#ff0000" stroke-width="2"/>
+  <text x="100" y="825" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#ff0000" transform="rotate(-90 100 825)">مخرج جنوبي</text>
+  
+  <!-- Parking Areas -->
+  <rect x="20" y="200" width="60" height="100" fill="rgba(128,0,128,0.2)" stroke="#800080" stroke-width="1"/>
+  <text x="50" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#800080" transform="rotate(-90 50 250)">موقف شمالي</text>
+  
+  <rect x="20" y="700" width="60" height="100" fill="rgba(128,0,128,0.2)" stroke="#800080" stroke-width="1"/>
+  <text x="50" y="750" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#800080" transform="rotate(-90 50 750)">موقف جنوبي</text>
+  
+  <!-- Restrooms -->
+  <circle cx="200" cy="200" r="15" fill="rgba(0,0,255,0.3)" stroke="#0000ff" stroke-width="2"/>
+  <text x="200" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#0000ff">د.م</text>
+  
+  <circle cx="200" cy="800" r="15" fill="rgba(0,0,255,0.3)" stroke="#0000ff" stroke-width="2"/>
+  <text x="200" y="805" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#0000ff">د.م</text>
+  
+  <circle cx="400" cy="300" r="15" fill="rgba(0,0,255,0.3)" stroke="#0000ff" stroke-width="2"/>
+  <text x="400" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#0000ff">د.م</text>
+  
+  <!-- Elevator -->
+  <rect x="390" y="350" width="20" height="30" fill="rgba(255,255,255,0.3)" stroke="#ffffff" stroke-width="1"/>
+  <text x="400" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#ffffff">مصعد</text>
+  
+  <!-- Stairs -->
+  <rect x="200" y="250" width="15" height="20" fill="rgba(255,255,255,0.3)" stroke="#ffffff" stroke-width="1"/>
+  <text x="207" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="#ffffff">درج</text>
+  
+  <rect x="200" y="750" width="15" height="20" fill="rgba(255,255,255,0.3)" stroke="#ffffff" stroke-width="1"/>
+  <text x="207" y="765" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="#ffffff">درج</text>
+  
+  <!-- Service Areas -->
+  <circle cx="500" cy="300" r="12" fill="rgba(255,165,0,0.3)" stroke="#ffa500" stroke-width="1"/>
+  <text x="500" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="#ffa500">شحن</text>
+  
+  <circle cx="250" cy="350" r="12" fill="rgba(255,0,0,0.3)" stroke="#ff0000" stroke-width="1"/>
+  <text x="250" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="#ff0000">إسعاف</text>
+  
+  <circle cx="100" cy="500" r="12" fill="rgba(0,255,0,0.3)" stroke="#00ff00" stroke-width="1"/>
+  <text x="100" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="#00ff00">أمن</text>
+  
+  <!-- Hologram Effect Lines -->
+  <defs>
+    <linearGradient id="hologramGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffff;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#ff00ff;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#00ffff;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Animated scanning lines -->
+  <rect x="0" y="0" width="800" height="2" fill="url(#hologramGradient)" opacity="0.6">
+    <animateTransform attributeName="transform" type="translate" values="0,0; 0,1000; 0,0" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Corner markers -->
+  <circle cx="100" cy="100" r="5" fill="#00ffff"/>
+  <circle cx="700" cy="100" r="5" fill="#00ffff"/>
+  <circle cx="100" cy="900" r="5" fill="#00ffff"/>
+  <circle cx="700" cy="900" r="5" fill="#00ffff"/>
+  
+  <!-- Building Title -->
+  <text x="400" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#00ffff" font-weight="bold">مركز المؤتمرات والمعارض</text>
+  
+  <!-- Scale indicator -->
+  <line x1="50" y1="950" x2="150" y2="950" stroke="#00ffff" stroke-width="2"/>
+  <text x="100" y="945" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#00ffff">50 متر</text>
+</svg>

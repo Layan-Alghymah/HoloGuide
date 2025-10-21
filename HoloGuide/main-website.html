@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoloGuide - المساعد الهولوجرامي الذكي</title>
+    <style>
+        :root {
+            --primary: #332e8b;
+            --secondary: #a4c5cc;
+            --accent: #792b97;
+            --white: #ffffff;
+            --light-bg: #f8faff;
+            --text-dark: #1a1a2e;
+            --text-light: #6b7280;
+            --success: #10b981;
+            --error: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(51, 46, 139, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(51, 46, 139, 0.98);
+            box-shadow: 0 4px 20px rgba(51, 46, 139, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            overflow: hidden;
+        }
+
+        .logo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .cta-nav {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            color: white !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(121, 43, 151, 0.3);
+        }
+
+        .cta-nav:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(121, 43, 151, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-60px); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: slideInRight 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            animation: slideInRight 1s ease-out 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: slideInRight 1s ease-out 0.4s both;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(164, 197, 204, 0.3);
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(164, 197, 204, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hologram-demo {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(164, 197, 204, 0.2), rgba(121, 43, 151, 0.2));
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .hologram-character {
+            width: 150px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--secondary), white);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: relative;
+            animation: pulse 2s infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+
+        .speech-bubble {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            border-radius: 20px 20px 5px 20px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            position: relative;
+            animation: fadeInUp 2s infinite;
+        }
+
+        @keyframes fadeInUp {
+            0%, 100% { opacity: 0; transform: translateY(10px); }
+            50% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background: var(--light-bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(51, 46, 139, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(51, 46, 139, 0.15);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Demo Section */
+        .demo-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            text-align: center;
+        }
+
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .demo-button {
+            background: linear-gradient(135deg, var(--secondary), white);
+            color: var(--primary);
+            padding: 1.5rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(164, 197, 204, 0.4);
+            margin-top: 2rem;
+        }
+
+        .demo-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(164, 197, 204, 0.6);
+        }
+
+        /* Animations */
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: var(--primary);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            padding: 0.25rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 4rem 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-placeholder">
+                    <img src="HoloGuideLogo.jpg" alt="HoLoGuide Logo" class="logo-image">
+                </div>
+                <span class="logo-text">HoloGuide</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#features">المميزات</a></li>
+                <li><a href="#demo">التجربة</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+                <li><a href="hologram-prototype.html" class="cta-nav">جرب الآن</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>المساعد الهولوجرامي الذكي للفعاليات</h1>
+                <p>نحن نقدم تجربة تفاعلية مبتكرة تساعد زوار الفعاليات في التنقل بسهولة من خلال شخصيات هولوجرامية ذكية مصممة خصيصاً لكل حدث</p>
+                <div class="hero-buttons">
+                    <a href="hologram-prototype.html" class="btn-primary">جرب الآن 🎤</a>
+                    <a href="#features" class="btn-secondary">اعرف أكثر</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hologram-demo">
+                    <div class="speech-bubble">كيف أروح للمسرح؟</div>
+                    <div class="hologram-character"></div>
+                    <div class="speech-bubble">اتبع الاتجاه الأزرق ←</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>لماذا HoloGuide؟</h2>
+                <p>نحن نحول الفعاليات إلى تجارب تفاعلية لا تُنسى من خلال التقنيات المتطورة والذكاء الاصطناعي</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>شخصيات مخصصة</h3>
+                    <p>ننشئ شخصية هولوجرامية فريدة لكل حدث تتماشى مع هوية العلامة التجارية وطبيعة الفعالية، مما يضمن تجربة متميزة ومميزة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>إرشاد ذكي ومرئي</h3>
+                    <p>يفهم النظام مخططات الأحداث ويقدم توجيهات دقيقة مع عرض مسارات مرئية واضحة للوصول إلى أي مكان في الفعالية</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎤</div>
+                    <h3>تفاعل صوتي طبيعي</h3>
+                    <p>يتفاعل المساعد مع الزوار باللغة العربية بطريقة طبيعية ويفهم الاستفسارات المختلفة ويجيب عليها بوضوح</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>استجابة فورية</h3>
+                    <p>يقدم إجابات سريعة ودقيقة في الوقت الفعلي دون انتظار، مما يوفر الوقت ويحسن من تجربة الزائر</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>دقة في التوجيه</h3>
+                    <p>يحدد الموقع الحالي للزائر ويقدم مسارات محددة وتعليمات واضحة للوصول إلى الوجهة المطلوبة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>تجربة متطورة</h3>
+                    <p>نستخدم أحدث التقنيات في الذكاء الاصطناعي والهولوجرام لضمان تجربة عصرية تترك انطباعاً إيجابياً</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo-section" id="demo">
+        <div class="demo-container">
+            <h2>🎤 جرب المساعد الهولوجرامي الآن</h2>
+            <p>اختبر التكنولوجيا المتطورة - تحدث بصوتك واسمع الإجابة باللهجة السعودية</p>
+            <a href="hologram-prototype.html" class="demo-button">
+                <i class="fas fa-hologram"></i>
+                ابدأ التجربة التفاعلية
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>تواصل معنا</h2>
+                <p>دعنا نناقش كيف يمكن لـ HoloGuide تحسين تجربة فعاليتك القادمة</p>
+            </div>
+            <div class="contact-content">
+                <div>
+                    <h3 style="margin-bottom: 2rem; font-size: 1.8rem;">لماذا تختار HoloGuide؟</h3>
+                    <div style="space-y: 1.5rem;">
+                        <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div style="color: var(--secondary); font-size: 1.5rem;">✓</div>
+                            <div>
+                                <h4 style="margin-bottom: 0.5rem;">تجربة فريدة للزوار</h4>
+                                <p style="color: rgba(255,255,255,0.8);">نقدم تجربة تفاعلية لا تُنسى تجعل زوار فعاليتك يتذكرونها دائماً</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div style="color: var(--secondary); font-size: 1.5rem;">✓</div>
+                            <div>
+                                <h4 style="margin-bottom: 0.5rem;">تقليل الضغط على الموظفين</h4>
+                                <p style="color: rgba(255,255,255,0.8);">يقلل من الحاجة للاستعانة بموظفين إضافيين للإرشاد</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: start; gap: 1rem; margin-bottom: 1.5rem;">
+                            <div style="color: var(--secondary); font-size: 1.5rem;">✓</div>
+                            <div>
+                                <h4 style="margin-bottom: 0.5rem;">تعزيز صورة العلامة التجارية</h4>
+                                <p style="color: rgba(255,255,255,0.8);">يُظهر التزامك بالتقنيات المتطورة والابتكار</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل</label>
+                            <input type="text" id="name" placeholder="اكتب اسمك الكامل" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">اسم الشركة أو المؤسسة</label>
+                            <input type="text" id="company" placeholder="اسم الشركة" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" placeholder="+966 5xxxxxxxx" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="event">نوع الفعالية</label>
+                            <input type="text" id="event" placeholder="مؤتمر، معرض، احتفال..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">تفاصيل إضافية</label>
+                            <textarea id="message" rows="4" placeholder="أخبرنا عن فعاليتك وكيف يمكننا مساعدتك"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%;">إرسال طلب العرض</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo" style="margin-bottom: 1rem;">
+                        <div class="logo-placeholder">
+                            <img src="HoloGuideLogo.jpg" alt="HoLoGuide Logo" class="logo-image">
+                        </div>
+                        <span class="logo-text">HoloGuide</span>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">
+                        المساعد الهولوجرامي الذكي الرائد في المملكة العربية السعودية. نحول الفعاليات إلى تجارب تفاعلية استثنائية.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>الخدمات</h3>
+                    <a href="#features">المساعد الهولوجرامي</a>
+                    <a href="#features">تصميم الشخصيات</a>
+                    <a href="#features">الإرشاد الذكي</a>
+                    <a href="#features">التفاعل الصوتي</a>
+                    <a href="#features">دعم الفعاليات</a>
+                </div>
+                <div class="footer-section">
+                    <h3>الصناعات</h3>
+                    <a href="#">المعارض التجارية</a>
+                    <a href="#">المؤتمرات</a>
+                    <a href="#">المهرجانات</a>
+                    <a href="#">الفعاليات الحكومية</a>
+                    <a href="#">المتاحف</a>
+                </div>
+                <div class="footer-section">
+                    <h3>تواصل معنا</h3>
+                    <a href="mailto:info@hologuide.sa">info@hologuide.sa</a>
+                    <a href="tel:+966500000000">+966 50 000 0000</a>
+                    <a href="#">الرياض، المملكة العربية السعودية</a>
+                    <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+                        <a href="#" style="font-size: 1.5rem;">📱</a>
+                        <a href="#" style="font-size: 1.5rem;">💼</a>
+                        <a href="#" style="font-size: 1.5rem;">📧</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 HoloGuide. جميع الحقوق محفوظة. | سياسة الخصوصية | شروط الاستخدام</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

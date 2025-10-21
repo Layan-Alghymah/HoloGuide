@@ -1,0 +1,70 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+  
+  <!-- Main Building Outline -->
+  <rect x="50" y="50" width="700" height="500" fill="white" stroke="#2c3e50" stroke-width="3"/>
+  
+  <!-- Central Corridor -->
+  <rect x="200" y="50" width="400" height="500" fill="#e9ecef" stroke="#adb5bd" stroke-width="1"/>
+  
+  <!-- North Wing -->
+  <rect x="50" y="50" width="150" height="200" fill="#f1f3f4" stroke="#adb5bd" stroke-width="1"/>
+  
+  <!-- South Wing -->
+  <rect x="50" y="350" width="150" height="200" fill="#f1f3f4" stroke="#adb5bd" stroke-width="1"/>
+  
+  <!-- East Wing -->
+  <rect x="600" y="50" width="150" height="500" fill="#f1f3f4" stroke="#adb5bd" stroke-width="1"/>
+  
+  <!-- Hall A -->
+  <rect x="250" y="100" width="200" height="150" fill="#e3f2fd" stroke="#2196f3" stroke-width="2"/>
+  <text x="350" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#1976d2">Hall A</text>
+  
+  <!-- Hall B -->
+  <rect x="250" y="350" width="200" height="150" fill="#e8f5e8" stroke="#4caf50" stroke-width="2"/>
+  <text x="350" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#388e3c">Hall B</text>
+  
+  <!-- Main Stage Area -->
+  <rect x="450" y="200" width="150" height="200" fill="#fff3e0" stroke="#ff9800" stroke-width="2"/>
+  <text x="525" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#f57c00">Main Stage</text>
+  
+  <!-- Information Desk -->
+  <circle cx="300" cy="300" r="30" fill="#e1f5fe" stroke="#03a9f4" stroke-width="2"/>
+  <text x="300" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#0277bd">Info</text>
+  
+  <!-- Entrance -->
+  <rect x="90" y="400" width="20" height="100" fill="#4caf50" stroke="#2e7d32" stroke-width="2"/>
+  <text x="100" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white" transform="rotate(-90 100 450)">Main Entrance</text>
+  
+  <!-- North Exit -->
+  <rect x="90" y="50" width="20" height="50" fill="#f44336" stroke="#c62828" stroke-width="2"/>
+  <text x="100" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white" transform="rotate(-90 100 75)">North Exit</text>
+  
+  <!-- South Exit -->
+  <rect x="90" y="500" width="20" height="50" fill="#f44336" stroke="#c62828" stroke-width="2"/>
+  <text x="100" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white" transform="rotate(-90 100 525)">South Exit</text>
+  
+  <!-- Parking Areas -->
+  <rect x="20" y="100" width="30" height="100" fill="#9c27b0" stroke="#6a1b9a" stroke-width="1"/>
+  <text x="35" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white" transform="rotate(-90 35 150)">North Parking</text>
+  
+  <rect x="20" y="400" width="30" height="100" fill="#9c27b0" stroke="#6a1b9a" stroke-width="1"/>
+  <text x="35" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white" transform="rotate(-90 35 450)">South Parking</text>
+  
+  <!-- Decorative Elements -->
+  <circle cx="150" cy="150" r="5" fill="#3498db"/>
+  <circle cx="150" cy="450" r="5" fill="#3498db"/>
+  <circle cx="450" cy="150" r="5" fill="#e74c3c"/>
+  <circle cx="450" cy="450" r="5" fill="#e74c3c"/>
+  <circle cx="650" cy="200" r="5" fill="#f39c12"/>
+  <circle cx="650" cy="400" r="5" fill="#f39c12"/>
+  
+  <!-- Grid lines for reference -->
+  <defs>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#e0e0e0" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#grid)" opacity="0.3"/>
+</svg>
