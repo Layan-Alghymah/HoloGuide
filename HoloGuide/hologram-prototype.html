@@ -694,16 +694,17 @@
     </div>
 
     <script>
-        // ElevenLabs Configuration
-        const ELEVENLABS_CONFIG = {
-            apiKey: 'df2306ab5757716e2c9b21057d6c9048ba71013ef9df32e90c8143cb0c5d559c',
-            voiceId: 'df2306ab5757716e2c9b21057d6c9048ba71013ef9df32e90c8143cb0c5d559c',
-            apiUrl: 'https://api.elevenlabs.io/v1/text-to-speech/'
-        };
+        
+ // Secure configuration - API keys are hidden on the server
+const ELEVENLABS_CONFIG = {
+    apiUrl: '/api/text-to-speech' // Calls your serverless function instead
+};
 
         // Global variables
         let isRecording = false;
         let currentAudio = null;
+
+        
 
         // DOM elements
         const voiceBtn = document.getElementById('voiceBtn');
@@ -1322,3 +1323,4 @@
     </script>
 </body>
 </html>
+
