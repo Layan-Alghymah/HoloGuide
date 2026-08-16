@@ -85,3 +85,29 @@ HoloGuide/
 ├── api/                # API / serverless functions
 ├── HoloGuideLogo.jpg   # Project branding
 └── README.md
+
+Recognition
+World Cup Solutions Innovation Hackathon
+
+5th Place
+
+HoloGuide was developed as a solution for improving visitor navigation and guidance at large-scale events.
+
+The hackathon experience played an important role in developing the project from an initial concept into a working prototype and strengthening our approach to both product and technical development.
+
+What I Learned
+
+Building HoloGuide strengthened my experience in:
+
+Translating a real-world problem into a technical product.
+Rapid prototyping under hackathon constraints.
+AI-assisted user experiences.
+API integration.
+Designing technology around real user journeys.
+Iterating between product decisions and technical implementation.
+Live Demo
+
+Try HoloGuide:
+https://hologuideksa.vercel.app/
+
+HoloGuide is a prototype developed as part of a hackathon project. Some integrations or functionality may depend on external services and may not always be available in the live deployment.
